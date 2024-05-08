@@ -1,0 +1,31 @@
+import javax.swing.JOptionPane;
+public class Padaria {
+	public static void main(String[] args) {
+		String nomeCliente = JOptionPane.showInputDialog(null, "Informe o nome do cliente: ");
+		double valorCompra = Double.parseDouble(JOptionPane.showInputDialog(null, "Informe o valor da compra: "));
+		double valorPago = Double.parseDouble(JOptionPane.showInputDialog(null, "Informe o valor pago: "));
+		double troco = valorPago - valorCompra;
+		
+		if (troco < 0) {
+			JOptionPane.showMessageDialog(null, "Valor insuficiente");
+		} else {
+			JOptionPane.showMessageDialog(null, "Nome do cliente: " + nomeCliente +
+					"\nValor da compra: " + valorCompra +
+					"\nValor pago: " + valorPago +
+					"\nTroco: " + troco +
+					"\nNotas para o troco: " + calculoTroco(troco));
+		}
+	}
+	public static String calculoTroco(double troco) {
+	       int[] notas = { 100, 50, 20, 10, 5, 2, 1 };
+	       String notasTroco = "";
+	       for (int nota : notas) {
+	         int quantidadeNotas = (int) (troco / nota);
+	         if (quantidadeNotas > 0) {
+	                  notasTroco += quantidadeNotas + " nota(s) de R$" + nota;
+	                  troco %= nota;
+	              }
+	          }
+	       return notasTroco;
+	    }
+}
