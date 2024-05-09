@@ -22,7 +22,7 @@ public class Padaria {
 	       for (int nota : notas) {
 	         int quantidadeNotas = (int) (troco / nota);
 	         if (quantidadeNotas > 0) {
-	                  notasTroco += quantidadeNotas + " nota(s) de R$" + nota;
+	                  notasTroco += quantidadeNotas + " nota(s) de R$" + nota + ", ";
 	                  troco %= nota;
 	              }
 	          }
